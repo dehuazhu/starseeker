@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+This is the server component
+<p>{{ 'Server' }} with ID {{ serverId }} is {{ serverStatus}}</p>
+
+<input
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"
+>
+
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="serverName"
+>
+
+<p>{{ serverName }}</p>
+<p><button
+  class="btn btn-warning"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+>
+  Add Server
+</button></p>
+<p>{{ allowNewServer }}</p>
+</body>
+<p>{{serverCreationStatus}}</p>
+<p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
+</html>
